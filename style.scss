@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500&display=swap');
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+header {
+    height:18vh;
+    width: 100%;
+    background-color:#07e6ae;
+    display:flex;
+    
+
+    .titles {
+        padding-left:10vw;
+        justify-content: center;
+        color:#fff;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .title {
+            font-size:3rem;
+            font-weight: 500;
+        }
+        .subtitle {
+            font-size:2rem;
+            font-weight: 200;
+        }
+    }
+}
+.content {
+    padding-left:10vw;
+    padding-right:10vw;
+    padding-top:3.5rem;
+    .properties {
+        display:flex;
+        padding-top:3rem;
+        flex-wrap: wrap;
+
+        .property {
+            display:flex;
+            flex-direction: column;
+            box-shadow: 0px 3px 10px 1px #adadad;
+            width:20rem;
+            margin:1.3%;
+            height:auto;
+            padding-bottom:3rem;
+
+            .image {
+                height:12rem;
+
+            }
+            .price,.location,.description {
+                padding:0rem 2rem 0 2rem;
+            }
+            .price::before {
+                content:'€';
+                font-weight: 800;
+                font-size: 2rem;
+            }
+            .price {
+                font-size: 2rem;
+                padding-top:2rem;
+            }
+            .description {
+                padding-top:2rem;
+            }
+        }
+    }
+}
+
+.filterBar {
+    display:flex;
+    justify-content: space-between;
+
+    .filterOptions {
+
+        .cityFilterBtn {
+            padding:.8rem;
+            background:#fff;
+            border-radius: .5rem;
+
+            &:hover {
+                border-color:#07e6ae;
+                cursor: pointer;
+            }           
+        }  
+    }
+    .addPropertyBtn {
+        padding:.8rem;
+        background-color: #07e6ae;
+        border-radius: .5rem;
+        a {
+            color:#fff;
+            text-decoration: none;
+        }
+        &:hover {
+            border-color:#07e6ae;
+            cursor: pointer;
+        }
+    }   
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+
+    label {
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding-top:1rem;
+        padding-bottom:1rem;
+    }
+    #citiesDropdown {
+        width: 7rem;
+    }
+    button[type="submit"] {
+        width:10rem;
+        padding:.8rem;
+        background-color: #07e6ae;
+        border-radius: .5rem;
+        color:#fff;
+        margin-top:1rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
