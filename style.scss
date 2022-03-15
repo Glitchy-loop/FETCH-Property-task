@@ -55,11 +55,12 @@ header {
             }
             .price::before {
                 content:'€';
-                font-weight: 800;
+                font-weight: 500;
                 font-size: 2rem;
             }
             .price {
                 font-size: 2rem;
+                font-weight: 500;
                 padding-top:2rem;
             }
             .description {

@@ -1,5 +1,6 @@
 const displayProperties = items => {
   const propertyBlock = document.querySelector('.properties')
+  propertyBlock.innerHTML = ''
 
   items.forEach(item => {
     const block = document.createElement('div')
@@ -24,6 +25,7 @@ const displayProperties = items => {
     propertyBlock.appendChild(block)
     block.prepend(image, price, location, description)
 
+    // Add comma to prices
     let allPrices = document.querySelectorAll('.price')
 
     allPrices.forEach(price => {
@@ -34,9 +36,10 @@ const displayProperties = items => {
       }
       price.innerHTML = separator(price.innerHTML)
     })
+    // Add filter buttons
   })
 }
-
+// Fetch data from the server
 const getData = async () => {
   const res = await fetch('https://radial-reinvented-shoe.glitch.me/')
   const data = await res.json()

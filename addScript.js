@@ -7,8 +7,6 @@ document.forms.properties.addEventListener('submit', e => {
   const city = e.target.elements.cities.value.trim()
   const data = { image, price, description, city }
 
-  console.log(JSON.stringify(data))
-
   return postData(data)
 })
 
