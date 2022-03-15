@@ -23,6 +23,17 @@ const displayProperties = items => {
 
     propertyBlock.appendChild(block)
     block.prepend(image, price, location, description)
+
+    let allPrices = document.querySelectorAll('.price')
+
+    allPrices.forEach(price => {
+      function separator (numb) {
+        var str = numb.toString().split('.')
+        str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+        return str.join('.')
+      }
+      price.innerHTML = separator(price.innerHTML)
+    })
   })
 }
 
