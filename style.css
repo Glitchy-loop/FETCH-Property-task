@@ -105,7 +105,6 @@ header .titles .subtitle {
 
 .filterBar .filterOptions .cityFilterBtn {
   padding: .8rem;
-  background: #fff;
   border-radius: .5rem;
 }
 
@@ -167,5 +166,19 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover {
   cursor: pointer;
+}
+
+.pagnitions {
+  padding-top: 1rem;
+}
+
+.pagnitions .pagnition {
+  padding: .8rem;
+  border-radius: .5rem;
+}
+
+.primary {
+  background-color: #07e6ae;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

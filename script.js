@@ -39,12 +39,62 @@ const displayProperties = items => {
     // Add filter buttons
   })
 }
-// Fetch data from the server
-const getData = async () => {
-  const res = await fetch('https://radial-reinvented-shoe.glitch.me/')
-  const data = await res.json()
+function displayError (message) {
+  const content = document.querySelector('.content')
+  content.innerHTML = ''
 
-  displayProperties(data)
-  //   console.log(data)
+  content.innerHTML = message
 }
+// Fetch data from the server
+let filteredCities = []
+let index = 0
+const getData = async () => {
+  try {
+    const res = await fetch(
+      `https://radial-reinvented-shoe.glitch.me/${index}/${filteredCities}`
+    )
+    const data = await res.json()
+
+    if (data.length > 0) {
+      return displayProperties(data)
+    }
+    // if error
+  } catch (err) {
+    console.log(err.message)
+    displayError(err.message || 'Error has occured')
+  }
+}
+
 getData()
+
+// Filter by city
+const filterBtns = document.querySelectorAll('.cityFilterBtn')
+
+filterBtns.forEach(button => {
+  button.addEventListener('click', e => {
+    if (e.target.classList.contains('primary')) {
+      filteredCities = filteredCities.filter(
+        city => city !== e.target.textContent
+      )
+    } else {
+      filteredCities.push(e.target.textContent)
+    }
+    getData()
+    e.target.classList.toggle('primary')
+  })
+})
+
+// Pagination
+const pagination = document.querySelectorAll('.pagnition')
+
+pagination.forEach(button => {
+  button.addEventListener('click', e => {
+    index = Number(e.target.textContent)
+    getData()
+
+    pagination.forEach(btn => {
+      btn.classList.remove('primary')
+    })
+    e.target.classList.add('primary')
+  })
+})
